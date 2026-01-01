@@ -4,12 +4,12 @@ A beautiful web-based wellness tracking application built with Next.js, React, T
 
 ## Features
 
-- 📊 **Wellness Trends** - Visualize your mood, focus, and energy levels over time
-- 🏃 **Recent Activity** - Track your workouts with detailed metrics
-- 🎯 **Active Goals** - Monitor progress on mental and physical goals
-- 📈 **Today's Progress** - Daily overview of your wellness journey
-- 🤖 **AI Insights** - Personalized recommendations based on your data
-- 🔥 **Your Stack** - Maintain your wellness streak with visual feedback
+- **Wellness Trends** - Visualize your mood, focus, and energy levels over time
+- **Recent Activity** - Track your workouts with detailed metrics
+- **Active Goals** - Monitor progress on mental and physical goals
+- **Today's Progress** - Daily overview of your wellness journey
+- **AI Insights** - Personalized recommendations based on your data
+- **Your Stack** - Maintain your wellness streak with visual feedback
 
 ## Getting Started
 
@@ -89,5 +89,4 @@ The app features a dark theme with:
 
 ## License
 
-Private - All rights reserved
-
+MIT
