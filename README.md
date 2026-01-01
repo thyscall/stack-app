@@ -1,6 +1,5 @@
-# Stack Web
+# Stack (Web)
 
-A beautiful web-based wellness tracking application built with Next.js, React, TypeScript, and Tailwind CSS.
 
 ## Features
 
