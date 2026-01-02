@@ -39,10 +39,11 @@ export interface Goal {
   color: string;
   streakDays: number;
   completedDates: Record<string, number>; // date key -> amount completed
-  dailyTarget?: number; // optional daily target
+  dailyTarget?: number; // calculated target per active day
   reminderTime?: string; // optional reminder time
   frequency?: string; // daily, weekly, etc.
   priority?: number; // weight for calculating progress (default 1)
+  activeDays?: number[]; // days of week to work on goal (0=Sun, 1=Mon, ..., 6=Sat)
 }
 
 export interface Workout {
