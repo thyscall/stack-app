@@ -49,68 +49,7 @@ interface MoodStore {
 }
 
 export const useGoalStore = create<GoalStore>((set, get) => ({
-  goals: [
-    {
-      id: '1',
-      title: 'Daily Meditation',
-      category: 'mental',
-      currentProgress: 12,
-      targetProgress: 30,
-      unit: 'days',
-      dueDate: addDays(new Date(), 18),
-      color: '#8B5CF6',
-      streakDays: 12,
-      completedDates: {},
-      dailyTarget: 1,
-      frequency: 'daily',
-      priority: 1,
-    },
-    {
-      id: '2',
-      title: 'Run 100 miles',
-      category: 'physical',
-      currentProgress: 42,
-      targetProgress: 100,
-      unit: 'miles',
-      dueDate: addDays(new Date(), 11),
-      color: '#10B981',
-      streakDays: 8,
-      completedDates: {},
-      dailyTarget: 3,
-      frequency: 'daily',
-      priority: 2, // Twice as important as other goals
-    },
-    {
-      id: '3',
-      title: 'Read 20 Books',
-      category: 'mental',
-      currentProgress: 8,
-      targetProgress: 20,
-      unit: 'books',
-      dueDate: addDays(new Date(), 25),
-      color: '#3B82F6',
-      streakDays: 0,
-      completedDates: {},
-      dailyTarget: 10,
-      frequency: 'daily',
-      priority: 1,
-    },
-    {
-      id: '4',
-      title: 'Strength Training',
-      category: 'physical',
-      currentProgress: 23,
-      targetProgress: 50,
-      unit: 'sessions',
-      dueDate: addDays(new Date(), 40),
-      color: '#F59E0B',
-      streakDays: 0,
-      completedDates: {},
-      dailyTarget: 1,
-      frequency: 'weekly',
-      priority: 1,
-    },
-  ],
+  goals: [],
   updateGoalProgress: (goalId, amount) => {
     set((state) => ({
       goals: state.goals.map((goal) =>
@@ -353,35 +292,7 @@ export const useGoalStore = create<GoalStore>((set, get) => ({
 }));
 
 export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
-  workouts: [
-    {
-      id: '1',
-      title: 'HIIT',
-      date: subDays(new Date(), 1),
-      duration: 45,
-      calories: 450,
-      avgHeartRate: 165,
-      type: 'HIIT',
-    },
-    {
-      id: '2',
-      title: 'Running',
-      date: subDays(new Date(), 2),
-      duration: 35,
-      calories: 320,
-      avgHeartRate: 155,
-      type: 'Running',
-    },
-    {
-      id: '3',
-      title: 'Strength',
-      date: subDays(new Date(), 3),
-      duration: 60,
-      calories: 280,
-      avgHeartRate: 130,
-      type: 'Strength',
-    },
-  ],
+  workouts: [],
   addWorkout: (workout, customDate) => {
     const workoutDate = customDate || new Date();
     const newWorkout = {
@@ -434,23 +345,12 @@ export const useWorkoutStore = create<WorkoutStore>((set, get) => ({
 }));
 
 export const useStackStore = create<StackStore>((set, get) => {
-  const stackDays: StackDay[] = [];
-  for (let i = 0; i < 12; i++) {
-    const intensity = 0.6 + (Math.random() * 0.4 - 0.2);
-    stackDays.push({
-      id: `stack-${i}`,
-      date: subDays(new Date(), i),
-      completed: true,
-      intensity: Math.min(1.0, Math.max(0.3, intensity)),
-    });
-  }
-
   return {
-    stackDays,
-    currentStreak: 12,
-    avgMood: 7.4,
-    totalWorkouts: 5,
-    totalEntries: 3,
+    stackDays: [],
+    currentStreak: 0,
+    avgMood: 0,
+    totalWorkouts: 0,
+    totalEntries: 0,
     calculateStackDay: (date, goalsCompleted, mentalGoals, physicalGoals, mood, workoutMinutes) => {
       const dateKey = getDateKey(date);
       
@@ -519,47 +419,15 @@ export const useStackStore = create<StackStore>((set, get) => {
 });
 
 export const useInsightStore = create<InsightStore>(() => ({
-  insights: [
-    {
-      id: '1',
-      text: 'Your productivity peaks on days with morning workouts',
-      icon: 'TrendingUp',
-      color: '#10B981',
-    },
-    {
-      id: '2',
-      text: 'Meditation streak correlates with +23% focus improvement',
-      icon: 'Brain',
-      color: '#8B5CF6',
-    },
-    {
-      id: '3',
-      text: 'Energy levels 15% higher when logging 7+ hours sleep',
-      icon: 'Zap',
-      color: '#F59E0B',
-    },
-  ],
+  insights: [],
   generateInsights: (goals, workouts, mood) => {
     // Future: Generate dynamic insights based on actual data
   },
 }));
 
 export const useMoodStore = create<MoodStore>((set, get) => {
-  const samples: MoodSample[] = [];
-  for (let i = 0; i < 7; i++) {
-    samples.push({
-      id: `mood-${i}`,
-      date: subDays(new Date(), 6 - i),
-      mood: Math.floor(Math.random() * 4) + 5,
-      energy: Math.floor(Math.random() * 4) + 5,
-      productivity: Math.floor(Math.random() * 4) + 5,
-      focus: Math.floor(Math.random() * 4) + 5,
-      progress: Math.floor(Math.random() * 3) + 7, // 7-10 for sample data
-    });
-  }
-
   return {
-    samples,
+    samples: [],
     log: (mood, energy, productivity, focus) => {
       const today = getDateKey(new Date());
       const progress = get().calculateDailyProgress(new Date());
@@ -643,32 +511,7 @@ interface JournalStore {
 }
 
 export const useJournalStore = create<JournalStore>((set, get) => ({
-  entries: [
-    {
-      id: '1',
-      date: subDays(new Date(), 0),
-      title: 'Morning Reflection',
-      content: 'Started the day with meditation. Feeling focused and energized. Ready to tackle my goals!',
-      mood: 8,
-      tags: ['morning', 'meditation'],
-    },
-    {
-      id: '2',
-      date: subDays(new Date(), 1),
-      title: 'Productive Day',
-      content: 'Completed my reading goal and had a great workout session. The consistency is paying off.',
-      mood: 9,
-      tags: ['productivity', 'goals'],
-    },
-    {
-      id: '3',
-      date: subDays(new Date(), 3),
-      title: 'Challenging Week',
-      content: 'Had some setbacks this week but staying committed. Tomorrow is a new opportunity.',
-      mood: 6,
-      tags: ['reflection'],
-    },
-  ],
+  entries: [],
   addEntry: (title, content, mood, tags, type, duration, thoughts, customDate) => {
     const entryDate = customDate || new Date();
     const newEntry = {
