@@ -188,7 +188,7 @@ export function GoalProgressInputModal({
                   type="text"
                   value={formData.pace}
                   onChange={(e) => setFormData({ ...formData, pace: e.target.value })}
-                  placeholder="e.g., 5:30/km"
+                  placeholder="e.g., 8:30/mi"
                   className="w-full bg-surfaceLight text-textPrimary rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue"
                 />
               </div>

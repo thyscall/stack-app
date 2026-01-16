@@ -169,7 +169,7 @@ export function CreateGoalModal({ isOpen, onClose }: CreateGoalModalProps) {
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="e.g., Read the Book of Mormon"
+                  placeholder="Goal Name"
                   className="w-full bg-surfaceLight text-textPrimary rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue text-lg"
                   autoFocus
                 />
